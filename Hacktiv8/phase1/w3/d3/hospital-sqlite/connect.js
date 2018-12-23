@@ -5,25 +5,22 @@ db.serialize(function () {
         id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
         username INTEGER,
         password TEXT,
-        role TEXT
+        role TEXT,
+        isLogin BOOLEAN
     );`
 
     let createPatient = `CREATE TABLE IF NOT EXISTS Patients (
         id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+        name TEXT,
         disease TEXT
     );`
 
     db.run(createEmployees, function (err) {
-        if (err) {
-            console.log(err);
-        }
+        err && console.log(err);
     })
 
     db.run(createPatient, function (err) {
-        if (err) {
-            console.log(err);
-            
-        }
+        err && console.log(err);
     })
 })
 

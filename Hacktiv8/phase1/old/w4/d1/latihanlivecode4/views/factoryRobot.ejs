@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+  <head>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="/css/materialize.css"  media="screen,projection"/>
+
+  <!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+  
+<body class="container center-align">
+<h1>Factory Data</h1>
+
+<p>NAME: <%=data.name%></p>
+<p>INCOME: <%=data.income%></p>
+<p>OUTCOME: <%=data.outcome%></p>
+
+
+<h1>Create Robot</h1>
+<div class="row">
+    <form class="col s12" action="/robots/register/<%= id%>" method="POST">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="name" type="text" class="validate" name="name">
+          <label for="name">Name</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="last_name" type="text" class="validate" name="stock">
+          <label for="last_name">Stock</label>
+        </div>
+      </div>
+     
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="text" type="text" class="validate" name="price">
+          <label for="email">Price</label>
+        </div>
+      </div>
+
+      <button class="btn waves-effect waves-light" type="submit">Submit
+          <i class="material-icons right">send</i>
+      </button>
+      
+    </form>
+  </div>
+
+
+  <h1>Robot list</h1>
+
+<table>
+<thead>
+  <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Stock</th>
+      <th>Price</th>
+      <th>Add</th>
+      <th>Produce</th>
+  </tr>
+</thead>
+
+<tbody>
+  <% for (let i =0; i < result.length; i++) { %>
+        <tr>
+            <td> <%= result[i].dataValues.id %> </td>
+            <td> <%= result[i].dataValues.name %> </td>
+            <td> <%= result[i].dataValues.stock %> </td>
+            <td> <%= result[i].dataValues.price %> </td>
+            <td> <a href="/robots/buy/<%=result[i].dataValues.id%>"class="waves-effect waves-light btn">Buy</a></td>
+            <td> <a href="/robots/produce/<%=result[i].dataValues.id%>"class="waves-effect waves-light btn">Produce</a></td>
+        </tr>
+
+        <% } %>
+</tbody>
+</table>
+</body>
+</html>

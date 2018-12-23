@@ -1,0 +1,14 @@
+{
+  "name": "sqlite",
+  "version": "1.0.0",
+  "description": "exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "sqlite3": "^4.0.4"
+  }
+}

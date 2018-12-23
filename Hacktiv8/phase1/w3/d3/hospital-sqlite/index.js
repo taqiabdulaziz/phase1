@@ -16,7 +16,7 @@ switch (command) {
         break;
 
     case `addPatient`:
-        Controller.addPatient(options[1], options.slice(2))
+        Controller.addPatient(options[0], options.slice(1))
         break;
     
     case `logout`:
